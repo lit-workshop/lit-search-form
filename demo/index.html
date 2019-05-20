@@ -26,9 +26,16 @@
       <demo-snippet>
         <template>
           <lit-search-form
+          id="search-form"
           label="Search whatever"
           textbutton="Do it now!"
           ></lit-search-form>
+          <script>
+            let component = document.getElementById('search-form');
+            component.addEventListener('search-event', (event) => {
+              console.log('Event: ', event);
+            })
+           </script>
         </template>
       </demo-snippet>
     </div>

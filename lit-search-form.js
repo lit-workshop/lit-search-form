@@ -59,20 +59,45 @@ class LitSearchForm extends LitElement {
     }
   }
 
+  constructor() {
+    super();
+    this.inputValue = '';
+  }
+
   render() {
     return html`
       <lit-input-styles></lit-input-styles>
       <lit-button-styles></lit-button-styles>
-      <form class="search-form">
+      <form class="search-form" @submit="${this.submitHandler}">
         <div class="field">
           <label for="input-search">${this.label}</label>
-          <input type="text" class="input-text" name="input-search" />
+          <input type="text" @input="${this.keyupHandler}" class="input-text" name="input-search" />
         </div>
         <div class="button-search">
           <button class="btn primary">${this.textButton}</button>
         </div>
       </form>
     `;
+  }
+
+  keyupHandler(event) {
+    this.inputValue = event.target.value;
+  }
+
+  submitHandler(event) {
+    event.preventDefault();
+    const searchEvent = new CustomEvent(
+      'search-event',
+      {
+        bubbles: true,
+        composed: true,
+        detail: {
+          query: this.inputValue
+        }
+      }
+    )
+
+    this.dispatchEvent(searchEvent);
   }
 }
 
