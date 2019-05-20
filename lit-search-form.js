@@ -52,17 +52,24 @@ class LitSearchForm extends LitElement {
     `;
   }
 
+  static get properties() {
+    return {
+      label: { type: String },
+      textButton: { type: String }
+    }
+  }
+
   render() {
     return html`
       <lit-input-styles></lit-input-styles>
       <lit-button-styles></lit-button-styles>
       <form class="search-form">
         <div class="field">
-          <label for="input-search">Search:</label>
+          <label for="input-search">${this.label}</label>
           <input type="text" class="input-text" name="input-search" />
         </div>
         <div class="button-search">
-          <button class="btn primary">Accept</button>
+          <button class="btn primary">${this.textButton}</button>
         </div>
       </form>
     `;
