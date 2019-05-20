@@ -2,7 +2,9 @@
   "name": "lit-search-form",
   "main": "lit-search-form.js",
   "dependencies": {
-    "lit-element": "^2.1.0"
+    "lit-element": "^2.1.0",
+    "lit-input-styles": "git@github.com:lit-workshop/lit-input-styles.git",
+    "lit-button-styles": "git@github.com:lit-workshop/lit-button-style.git"
   },
   "devDependencies": {
     "@polymer/iron-demo-helpers": "^3.0.0-pre.19",

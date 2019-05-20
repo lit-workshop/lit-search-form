@@ -1,4 +1,6 @@
 import { LitElement, html, css } from 'lit-element';
+import "lit-input-styles/lit-input-styles";
+import "lit-button-styles/lit-button-styles";
 
 /**
  * `lit-search-form`
@@ -37,30 +39,10 @@ class LitSearchForm extends LitElement {
         justify-content: flex-start;
       }
 
-      .input-search {
-        border: 1px solid var(--neutral-color);
-        font-size: var(--font-size);
-        margin: 5px 0px;
-        border-radius: 4px;
-      }
-
-      .input-search:focus {
-        outline: none;
-        border: 2px solid var(--primary-light-color);
-      }
-
       .button-search {
         display: flex;
         justify-content: flex-end;
         align-items: center;
-      }
-
-      .btn {
-        height: 30px;
-        weight: 40px;
-        border: 1px solid var(--neutral-color);
-        font-size: var(--font-size-small);
-        border-radius: 4px;
       }
 
       .btn.primary {
@@ -72,10 +54,12 @@ class LitSearchForm extends LitElement {
 
   render() {
     return html`
+      <lit-input-styles></lit-input-styles>
+      <lit-button-styles></lit-button-styles>
       <form class="search-form">
         <div class="field">
           <label for="input-search">Search:</label>
-          <input type="text" class="input-search" name="input-search" />
+          <input type="text" class="input-text" name="input-search" />
         </div>
         <div class="button-search">
           <button class="btn primary">Accept</button>
